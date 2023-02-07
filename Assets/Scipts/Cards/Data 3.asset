@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69bcd4e0d652cd43a099a29853a242e, type: 3}
   m_Name: Data 3
   m_EditorClassIdentifier: 
-  card: {fileID: 0}
+  card: {fileID: 21300000, guid: 5786f6c376e3d2d4dbd3b50e05a8f5c4, type: 3}
   index: 3

@@ -11,11 +11,34 @@ public class GameManager : MonoBehaviour
     public TMP_InputField number;
     [SerializeField]
     public RestApi apiRest;
-    
+    [SerializeField] Image[] drawCards;
 
+    private void OnEnable()
+    {
+        apiRest.onDataDeckFilled += DrawCardsUI;
+    }
+    private void OnDisable()
+    {
+        apiRest.onDataDeckFilled -= DrawCardsUI;
+    }
     public void DrawCards(){
+        
         if(number != null){
-            apiRest.SendRequest(number.text);
+            apiRest.SendRequest(int.Parse(number.text));
+        }
+
+    }
+    private void DrawCardsUI(DataDeck data)
+    {
+        for (int i = 0; i < data.dataDeck.Count; i++)
+        {
+            for (int j = 0; j < deck.deck.Length; j++)
+            {
+                if (data.dataDeck[0].index == deck.deck[j].index)
+                {
+                    drawCards[i].sprite = deck.deck[j].card;
+                }
+            }
         }
 
     }

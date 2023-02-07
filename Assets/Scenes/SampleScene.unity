@@ -341,7 +341,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 244493429}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 385403820}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: DrawCards
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &244493429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +422,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 11400000, guid: a0ddfab2e8d6a8d49b29eb8305acc644, type: 2}
+  number: {fileID: 1193522561}
+  apiRest: {fileID: 481097936}
+  drawCards:
+  - {fileID: 628517810}
+  - {fileID: 1968887763}
+  - {fileID: 1141719594}
+  - {fileID: 769127185}
+  - {fileID: 923594246}
+  - {fileID: 1719329669}
+  - {fileID: 923518732}
+  - {fileID: 1016388274}
+  - {fileID: 1401964288}
+  - {fileID: 1328792188}
 --- !u!4 &385403821
 Transform:
   m_ObjectHideFlags: 0

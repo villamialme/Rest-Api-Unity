@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Events;
 
 public class RestApi : MonoBehaviour
 {
@@ -11,19 +12,32 @@ public class RestApi : MonoBehaviour
     [SerializeField]
     [Range(1,5)]
     private int limiter;
+    public UnityAction<DataDeck> onDataDeckFilled;
 
-    private void Start()
-    {
-        SendRequest();
-
+    public int Limiter 
+    { 
+        get => limiter;
+        set
+        {
+            if(value < 1)
+            {
+                limiter = 1;
+                return;
+            }
+            if (value > 10)
+            {
+                limiter = 10;
+                return;
+            }
+            limiter = value;
+            return;
+        } 
     }
-
-
 
     public void SendRequest(int lit)
     {
-        limiter = lit;
-        string url = uri+limit+limiter;
+        Limiter = lit;
+        string url = uri+limit+Limiter;
         Debug.LogAssertion(url);
         StartCoroutine(RequestGet(url));
 
@@ -56,6 +70,7 @@ public class RestApi : MonoBehaviour
         DataDeck jsondata = JsonUtility.FromJson<DataDeck>("{\"dataDeck\":" + data + "}");
         Debug.Log(jsondata.dataDeck);
         Debug.Log(jsondata.dataDeck[0].id);
+        onDataDeckFilled?.Invoke(jsondata);
         
     }
 }
