@@ -20,8 +20,9 @@ public class RestApi : MonoBehaviour
 
 
 
-    public void SendRequest()
+    public void SendRequest(int lit)
     {
+        limiter = lit;
         string url = uri+limit+limiter;
         Debug.LogAssertion(url);
         StartCoroutine(RequestGet(url));

@@ -1,8 +1,6 @@
-using System.Net.Mime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class GameManager : MonoBehaviour
@@ -10,16 +8,15 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Deck deck;
     [SerializeField]
-    private 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TMP_InputField number;
+    [SerializeField]
+    public RestApi apiRest;
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void DrawCards(){
+        if(number != null){
+            apiRest.SendRequest(number.text);
+        }
+
     }
 }
