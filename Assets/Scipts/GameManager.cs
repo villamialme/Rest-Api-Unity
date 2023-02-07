@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         {
             for (int j = 0; j < deck.deck.Length; j++)
             {
-                if (data.dataDeck[0].index == deck.deck[j].index)
+                if (data.dataDeck[i].index == deck.deck[j].index)
                 {
                     drawCards[i].sprite = deck.deck[j].card;
                 }

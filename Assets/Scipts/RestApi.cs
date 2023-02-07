@@ -69,7 +69,6 @@ public class RestApi : MonoBehaviour
     {
         DataDeck jsondata = JsonUtility.FromJson<DataDeck>("{\"dataDeck\":" + data + "}");
         Debug.Log(jsondata.dataDeck);
-        Debug.Log(jsondata.dataDeck[0].id);
         onDataDeckFilled?.Invoke(jsondata);
         
     }
