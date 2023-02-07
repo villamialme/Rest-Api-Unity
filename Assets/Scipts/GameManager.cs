@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         apiRest.onDataDeckFilled -= DrawCardsUI;
     }
     public void DrawCards(){
-        
+        ResetCardsUI();
         if(number != null){
             apiRest.SendRequest(int.Parse(number.text));
         }
@@ -41,5 +41,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+    private void ResetCardsUI()
+    {
+        foreach (var card in drawCards)
+        {
+            card.sprite = null;
+        }
     }
 }
