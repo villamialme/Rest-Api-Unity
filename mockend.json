@@ -1,10 +1,19 @@
 {
-    "Card":{
-        "index":{
-            "int":{
-                "min":0,
-                "max":9
-            }
-        }
+  "endpoints": [
+    {
+      "route": "/api/random-numbers",
+      "method": "GET",
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": []
+      },
+      "onRequest": {
+        "action": "executeJavaScript",
+        "script": "const numbers = Array.from({ length: 5 }, () => Math.floor(Math.random() * 6) + 1); responseBody = numbers;"
+      }
     }
+  ]
 }
